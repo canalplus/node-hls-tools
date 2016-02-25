@@ -7,13 +7,13 @@
 
 var fs = require('fs'),
     path = require('path');
-var nopt = require('noptify/node_modules/nopt');
+//var nopt = require('noptify/node_modules/nopt');
 
 var HlsSegmentReader = require('hls-segment-reader');
 var recorder = require('../lib/recorder');
 
 function DateValue(){}
-nopt.typeDefs[DateValue] = { type: DateValue, validate: function (data, key, val) {
+/*nopt.typeDefs[DateValue] = { type: DateValue, validate: function (data, key, val) {
   var date;
   if (val === 'now') val = '+0';
   if (val.length && (val[0] === '+' || val[0] === '-')) {
@@ -26,13 +26,13 @@ nopt.typeDefs[DateValue] = { type: DateValue, validate: function (data, key, val
   if (!date) return false;
   data[key] = date;
 }};
-
+*/
 function HexValue(){}
-nopt.typeDefs[HexValue] = { type: HexValue, validate: function (data, key, val) {
+/*nopt.typeDefs[HexValue] = { type: HexValue, validate: function (data, key, val) {
   console.log('!', data, key, val)
   data[key] = new Buffer(val, 'hex');
 }};
-
+*/
 var hlsrecord = require('noptify')(process.argv, { program: 'hlsrecord <url>' });
 hlsrecord.version(require('../package').version)
    .option('collect', '-C', 'Collect output segments to a single file', Boolean)
